@@ -26,7 +26,29 @@ public class BuscaLocal {
         for (int i=0;i<this.qtde;i++){
             System.out.print(""+this.rota[i]+"-");
         }
+        
+        System.out.println("\nCusto Total = " + custo_rota(this.rota));
     }
+    
+    
+    private double custo_rota(int[] rota_testada){
+        double custo =0.0;
+        int i, de , para;
+        
+        for (i=0;  i<this.qtde-1; i++){
+            de=rota_testada[i];
+            para=rota_testada[i+1];
+            
+            custo+= this.distancias[de][para];
+                                 
+        }
+        //Voltando para a cidade de origem
+        
+        custo+=this.distancias[i][0];
+        return custo;
+                
+    }
+    
     
     private void gerar_rota_inicial_aleatoria(){
         //Esvaziando o vetor
