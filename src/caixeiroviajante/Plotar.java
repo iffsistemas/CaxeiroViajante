@@ -20,6 +20,10 @@ public class Plotar extends JPanel{
     private int[][] coordenadas;
     private int[] rota;
 
+
+    
+    
+
     public Plotar(int qtde, int largura, int altura, int[] rota, int[][] coordenadas) {
         this.qtde = qtde;
         this.altura=altura;
@@ -29,6 +33,8 @@ public class Plotar extends JPanel{
             
     }
    
+    
+    
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         int x, y, i;

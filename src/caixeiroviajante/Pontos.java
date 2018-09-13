@@ -23,6 +23,10 @@ public class Pontos extends JPanel{
     public double[][] getDistancias() {
         return distancias;
     }
+    
+        public int[][] getCoordenadas() {
+        return coordenadas;
+    }
 
     public Pontos(int qtde, int largura, int altura) {
         this.qtde = qtde;

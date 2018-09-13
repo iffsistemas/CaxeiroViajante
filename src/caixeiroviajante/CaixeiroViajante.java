@@ -30,7 +30,16 @@ public class CaixeiroViajante {
        pto.setVisible(true);
        
        BuscaLocal bl = new BuscaLocal(p.getDistancias(),qtde);
-        
+       
+       Plotar plo = new Plotar(qtde, largura, altura, bl.getRota(), p.getCoordenadas());
+       
+       JFrame pto2 = new JFrame("Melhor Rota");
+       pto2.add(plo); 
+       
+       pto2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       pto2.setSize(largura,altura);
+       pto2.setLocationRelativeTo(null);
+       pto2.setVisible(true);
     }
     
 }
