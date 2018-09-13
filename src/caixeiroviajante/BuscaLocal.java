@@ -16,6 +16,11 @@ public class BuscaLocal {
     private int[] rota;
     private double [][]distancias;
     private int qtde;
+    
+       public int[] getRota() {
+        return rota;
+    }
+    
 
     public BuscaLocal(double[][] distancias, int qtde) {
         this.distancias = distancias;
@@ -36,6 +41,10 @@ public class BuscaLocal {
          }
          System.out.println("\nCusto Total = " + custo_rota(this.rota));
     }
+
+ 
+    
+    
     
     private void AllPairs(){
         int aux_rota[] = new int [this.qtde], troca;
@@ -44,7 +53,6 @@ public class BuscaLocal {
         //Primeiro copia-se a rota inicial gerada aleatoriamente
         System.arraycopy(this.rota,0, aux_rota,0,this.qtde);
         distancia_total=custo_rota(this.rota);
-        aux_distancia_total=distancia_total;
         boolean melhorou=true;
         
         
