@@ -22,12 +22,65 @@ public class BuscaLocal {
         this.qtde = qtde;
         this.rota= new int[qtde];
         gerar_rota_inicial_aleatoria();
-        
+                
         for (int i=0;i<this.qtde;i++){
             System.out.print(""+this.rota[i]+"-");
         }
         
         System.out.println("\nCusto Total = " + custo_rota(this.rota));
+        //Melhorando o trajeto do caxeiro viajente
+        AllPairs();
+        
+         for (int i=0;i<this.qtde;i++){
+            System.out.print(""+this.rota[i]+"-");
+         }
+         System.out.println("\nCusto Total = " + custo_rota(this.rota));
+    }
+    
+    private void AllPairs(){
+        int aux_rota[] = new int [this.qtde], troca;
+        double distancia_total, aux_distancia_total;
+        
+        //Primeiro copia-se a rota inicial gerada aleatoriamente
+        System.arraycopy(this.rota,0, aux_rota,0,this.qtde);
+        distancia_total=custo_rota(this.rota);
+        aux_distancia_total=distancia_total;
+        boolean melhorou=true;
+        
+        
+        //Iniciando a busca App Pairs
+        while(melhorou) {
+            melhorou=false;
+        for(int i=0;i<this.qtde-1;i++){
+            for(int j=i+1; j<this.qtde;j++){
+                troca=aux_rota[i];
+                aux_rota[i]=aux_rota[j];
+                aux_rota[j]=troca;
+                
+                //Verificando o custo da nova rota
+                aux_distancia_total=custo_rota(aux_rota);
+                
+                //Melhorou?
+                    if (aux_distancia_total<distancia_total){
+                        melhorou=true;
+                        distancia_total=aux_distancia_total;
+                        
+                        //Atualizando a rota que foi melhorada
+                        System.arraycopy(aux_rota,0,this.rota,0,this.qtde);
+                    }
+                    //Voltando com a configuração original para testar as outras combinações
+                    
+                    troca=aux_rota[j];
+                    aux_rota[j]=aux_rota[i];
+                    aux_rota[j]=troca;
+            }//Neste Local encerram-se os ciclos de troca
+            
+            //Atualizando com a melhor rota
+            System.arraycopy(this.rota, 0, aux_rota, 0, this.qtde);
+        }
+       
+      }    
+        
     }
     
     
