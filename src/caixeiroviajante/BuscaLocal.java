@@ -14,18 +14,26 @@ import java.util.Random;
 
 public class BuscaLocal {
     private int[] rota;
+    private int[] rotinha;
     private double [][]distancias;
     private int qtde;
     
        public int[] getRota() {
         return rota;
     }
+
+    public int[] getRotinha() {
+        return rotinha;
+    }
+       
+       
     
 
     public BuscaLocal(double[][] distancias, int qtde) {
         this.distancias = distancias;
         this.qtde = qtde;
         this.rota= new int[qtde];
+        this.rotinha = new int[qtde];
         gerar_rota_inicial_aleatoria();
                 
         for (int i=0;i<this.qtde;i++){
@@ -33,6 +41,7 @@ public class BuscaLocal {
         }
         
         System.out.println("\nCusto Total = " + custo_rota(this.rota));
+        System.arraycopy(this.rota, 0, this.rotinha, 0, qtde);
         //Melhorando o trajeto do caxeiro viajente
         AllPairs();
         
@@ -40,6 +49,9 @@ public class BuscaLocal {
             System.out.print(""+this.rota[i]+"-");
          }
          System.out.println("\nCusto Total = " + custo_rota(this.rota));
+         
+         
+         
     }
 
  

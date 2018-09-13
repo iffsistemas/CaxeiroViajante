@@ -40,6 +40,23 @@ public class CaixeiroViajante {
        pto2.setSize(largura,altura);
        pto2.setLocationRelativeTo(null);
        pto2.setVisible(true);
+       
+       
+       Plotar plo2 = new Plotar(qtde, largura, altura, bl.getRotinha(), p.getCoordenadas());
+       
+       JFrame pto3 = new JFrame("Rota Inicial");
+       pto3.add(plo2); 
+       
+       pto3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       pto3.setSize(largura,altura);
+       pto3.setLocationRelativeTo(null);
+       pto3.setVisible(true);
+       
+       
+       
+       
+       
+       
     }
     
 }
